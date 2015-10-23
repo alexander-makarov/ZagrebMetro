@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using QuickGraph;
 using QuickGraph.Algorithms;
-using QuickGraph.Algorithms.ShortestPath;
+using QuickGraph.Algorithms.Services;
 
 namespace MetroNetwork
 {
@@ -76,7 +76,7 @@ namespace MetroNetwork
                 // if wanna llok for shortest path from a vertex back to the same vertex
                 // i.e. shortest cycle included a given vertex
                 // use the Floyd-Warshall algorithm O(V^3)
-                var algorithm = new FloydWarshallAllShortestPathAlgorithm<string, Edge<string>>(_graph, edgeCost);
+                var algorithm = new FloydWarshall2<string, Edge<string>>(_graph, edgeCost);
                 
                 algorithm.Compute();
                 
