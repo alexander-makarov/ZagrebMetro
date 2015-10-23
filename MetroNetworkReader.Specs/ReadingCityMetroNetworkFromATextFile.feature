@@ -3,17 +3,16 @@
 	I want to be able to read in a text file that contains data about City Metro network
 
 Background: 
-	Given I have text file that contains data about metro network
 	Given I have a new metro network graph
 
 Scenario: Read metro network graph from a string
-	Given The following metro network string have been provided 
+	Given The text file that contains the following string data
 		"""
 		MAKSIMIR-SIGET:5, SIGET-SPANSKO:4, SPANSKO-MEDVESCAK:8, MEDVESCAK-SPANSKO:8,
 		MEDVESCAK-DUBRAVA:6, MAKSIMIR-MEDVESCAK:5, SPANSKO-DUBRAVA:2, DUBRAVA-SIGET:3,
 		MAKSIMIR-DUBRAVA:7
 		"""
-	When I read the metro network graph from a string
+	When I read string data into a metro network graph
 	Then all from the following connections should be printed on a screen:
 		| FromToConnections					|
 		| From MAKSIMIR to SIGET -> 5		|

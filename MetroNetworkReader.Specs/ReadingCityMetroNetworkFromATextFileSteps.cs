@@ -24,13 +24,13 @@ namespace MetroNetworkReader.Specs
         }
 
 
-        [Given(@"The following metro network string have been provided")]
+        [Given(@"The text file that contains the following string data")]
         public void GivenTheFollowingMetroNetworkStringHaveBeenProvided(string multilineText)
         {
             _metroNetworkStr = multilineText;
         }
 
-        [When(@"I read the metro network graph from a string")]
+        [When(@"I read string data into a metro network graph")]
         public void WhenIReadTheMetroNetworkString()
         {
             _metroNetwork.ReadFromString(_metroNetworkStr);
