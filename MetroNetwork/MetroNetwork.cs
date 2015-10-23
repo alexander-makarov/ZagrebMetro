@@ -11,21 +11,32 @@ namespace MetroNetwork
         private readonly SortedList<string, SortedList<string, int>> _graphNodes = new SortedList<string, SortedList<string, int>>();
         public void ReadFromString(string metroNetworkGraphStr)
         {
-            var edges = metroNetworkGraphStr.Split(',').Select(s => s.Trim());
-            foreach (var edge in edges)
-            {
-                var stationPairAndDistance = edge.Split(':');
-                var stationPair = stationPairAndDistance[0].Split('-');
-                var station1 = stationPair[0];
-                var station2 = stationPair[1];
-                var distance = Int32.Parse(stationPairAndDistance[1]);
+            if(String.IsNullOrWhiteSpace(metroNetworkGraphStr))
+                throw new ArgumentException("Metro network string either null, empty or consists only of whitespaces", "metroNetworkGraphStr");
 
-                if (!_graphNodes.ContainsKey(station1))
+            try
+            {
+                var edges = metroNetworkGraphStr.Split(',').Select(s => s.Trim());
+                foreach (var edge in edges)
                 {
-                    _graphNodes.Add(station1, new SortedList<string, int>());
-                } 
-                _graphNodes[station1].Add(station2, distance);
+                    var stationPairAndDistance = edge.Split(':');
+                    var stationPair = stationPairAndDistance[0].Split('-');
+                    var station1 = stationPair[0];
+                    var station2 = stationPair[1];
+                    var distance = Int32.Parse(stationPairAndDistance[1]);
+
+                    if (!_graphNodes.ContainsKey(station1))
+                    {
+                        _graphNodes.Add(station1, new SortedList<string, int>());
+                    }
+                    _graphNodes[station1].Add(station2, distance);
+                }
             }
+            catch (Exception exc)
+            {
+                throw new FormatException("Can't read a metro networkgraph - string is in incorrect format", exc);
+            }
+            
         }
 
         public override string ToString()

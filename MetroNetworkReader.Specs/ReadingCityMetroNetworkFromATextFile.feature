@@ -3,6 +3,7 @@
 	I want to be able to read in a text file that contains data about City Metro network
 
 Background: 
+	Given I have text file that contains data about metro network
 	Given I have a new metro network graph
 
 Scenario: Read metro network graph from a string

@@ -73,6 +73,8 @@ namespace MetroNetworkReader.Specs
         {
 #line 5
 #line 6
+ testRunner.Given("I have text file that contains data about metro network", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
  testRunner.Given("I have a new metro network graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
@@ -83,16 +85,16 @@ namespace MetroNetworkReader.Specs
         public virtual void ReadMetroNetworkGraphFromAString()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Read metro network graph from a string", ((string[])(null)));
-#line 8
+#line 9
 this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line hidden
-#line 9
+#line 10
  testRunner.Given("The following metro network string have been provided", "MAKSIMIR-SIGET:5, SIGET-SPANSKO:4, SPANSKO-MEDVESCAK:8, MEDVESCAK-SPANSKO:8,\r\nMED" +
                     "VESCAK-DUBRAVA:6, MAKSIMIR-MEDVESCAK:5, SPANSKO-DUBRAVA:2, DUBRAVA-SIGET:3,\r\nMAK" +
                     "SIMIR-DUBRAVA:7", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 16
  testRunner.When("I read the metro network graph from a string", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -115,7 +117,7 @@ this.FeatureBackground();
                         "From DUBRAVA to SIGET -> 3"});
             table1.AddRow(new string[] {
                         "From MAKSIMIR to DUBRAVA -> 7"});
-#line 16
+#line 17
  testRunner.Then("all from the following connections should be printed on a screen:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
