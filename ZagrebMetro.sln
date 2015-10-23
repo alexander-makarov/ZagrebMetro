@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroService.Specs", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroClient", "ZagrebMetroClient\ZagrebMetroClient.csproj", "{1653453E-DFCA-4E88-A1BF-D1D2E967333C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestRequestHelpers", "RestRequestHelpers\RestRequestHelpers.csproj", "{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{3F782422-FAEF-478E-AC41-3DF65006E349} = {15212267-A75C-4D66-AA23-6619A28E7772}
 		{AA0909D2-59D7-4E04-B496-900252C2A729} = {15212267-A75C-4D66-AA23-6619A28E7772}
 		{1653453E-DFCA-4E88-A1BF-D1D2E967333C} = {15212267-A75C-4D66-AA23-6619A28E7772}
+		{3C1C61B7-8B23-45C5-93EE-F6709A0700EC} = {15212267-A75C-4D66-AA23-6619A28E7772}
 	EndGlobalSection
 EndGlobal

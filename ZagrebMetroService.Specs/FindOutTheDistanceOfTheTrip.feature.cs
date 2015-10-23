@@ -33,7 +33,8 @@ namespace ZagrebMetroService.Specs
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Find out the distance of the trip", "As a citizen or a visitor to Zagreb\r\nI want to be able to find out the distance o" +
                     "f the trip (a series of routes)\r\nusing HTTP REST services which output JSON data" +
-                    "", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "", ProgrammingLanguage.CSharp, new string[] {
+                        "operateOnSelfHostedWcfService"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -72,9 +73,9 @@ namespace ZagrebMetroService.Specs
         
         public virtual void FeatureBackground()
         {
-#line 6
-#line hidden
 #line 7
+#line hidden
+#line 8
  testRunner.Given("I have a deployed HTTP REST service with the following metro network graph:", "MAKSIMIR-SIGET:5, SIGET-SPANSKO:4, SPANSKO-MEDVESCAK:8, MEDVESCAK-SPANSKO:8,\r\nMED" +
                     "VESCAK-DUBRAVA:6, MAKSIMIR-MEDVESCAK:5, SPANSKO-DUBRAVA:2, DUBRAVA-SIGET:3,\r\nMAK" +
                     "SIMIR-DUBRAVA:7", ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -84,20 +85,21 @@ namespace ZagrebMetroService.Specs
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Get distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         public virtual void GetDistanceOfTheTrip()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get distance of the trip", ((string[])(null)));
-#line 14
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 6
+#line 7
 this.FeatureBackground();
 #line hidden
-#line 15
- testRunner.Given("the following JSON data structure with stations provided", "{\r\n\t\"stations\" : [“MAKSIMIR”, “SIGET”, ”SPANSKO”]\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 21
+#line 16
+ testRunner.Given("the following JSON data structure with stations provided", "{\r\n\t\"stations\" : [\"MAKSIMIR\", \"SIGET\", \"SPANSKO\"]\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
  testRunner.When("I request: POST /zagreb-metro/trip/distance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 23
  testRunner.Then("I get as a response the following JSON data structure", "{\r\n\t\"distance\" : 9\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

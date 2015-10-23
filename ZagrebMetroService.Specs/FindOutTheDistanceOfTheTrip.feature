@@ -1,4 +1,5 @@
-﻿Feature: Find out the distance of the trip
+﻿@operateOnSelfHostedWcfService
+Feature: Find out the distance of the trip
 	As a citizen or a visitor to Zagreb
 	I want to be able to find out the distance of the trip (a series of routes)
 	using HTTP REST services which output JSON data
@@ -15,7 +16,7 @@ Scenario: Get distance of the trip
 	Given the following JSON data structure with stations provided
 		"""
 		{
-			"stations" : [“MAKSIMIR”, “SIGET”, ”SPANSKO”]
+			"stations" : ["MAKSIMIR", "SIGET", "SPANSKO"]
 		}
 		"""		
 	When I request: POST /zagreb-metro/trip/distance

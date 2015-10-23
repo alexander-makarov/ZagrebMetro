@@ -14,6 +14,7 @@ using Ninject;
 using Ninject.Extensions.Wcf;
 using Ninject.Extensions.Wcf.SelfHost;
 using Ninject.Web.Common.SelfHost;
+using RestRequestHelpers;
 using ZagrebMetroService;
 
 namespace ZagrebMetroClient
@@ -49,7 +50,7 @@ namespace ZagrebMetroClient
 
                 var l = new Msg() {stations = new List<string> {"gg", "tt"}};
                 var jsonContent = JsonConvert.SerializeObject(l);// "{\"stations\":\"spanko\"}"; //
-                var jsonString = POST(@"http://localhost:8733/zagreb-metro/trip/distance/", jsonContent);
+                var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/distance/", jsonContent);
                 Console.WriteLine("Response JSON={0}", jsonString);
 
                 
@@ -65,47 +66,6 @@ namespace ZagrebMetroClient
         public class Msg
         {
             public List<string> stations { get; set; } 
-        }
-
-        // POST a JSON string
-        public static string POST(string url, string jsonContent)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "POST";
-
-            System.Text.UTF8Encoding encoding = new System.Text.UTF8Encoding();
-            Byte[] byteArray = encoding.GetBytes(jsonContent);
-
-            request.ContentLength = byteArray.Length;
-            request.ContentType = @"application/json";
-
-            using (Stream dataStream = request.GetRequestStream())
-            {
-                dataStream.Write(byteArray, 0, byteArray.Length);
-            }
-            long length = 0;
-            try
-            {
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                {
-                    using (Stream responseStream = response.GetResponseStream())
-                    {
-                        StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-                        return reader.ReadToEnd();
-                    }
-                }
-            }
-            catch (WebException ex)
-            {
-                WebResponse errorResponse = ex.Response;
-                using (Stream responseStream = errorResponse.GetResponseStream())
-                {
-                    StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-                    String errorText = reader.ReadToEnd();
-                    // log errorText
-                }
-                throw;
-            }
         }
 
         //private static NinjectSelfHostBootstrapper selfHost;

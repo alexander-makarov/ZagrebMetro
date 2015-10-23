@@ -35,7 +35,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="TechTalk.SpecFlow">
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
@@ -77,6 +83,10 @@
     <ProjectReference Include="..\MetroNetwork\MetroNetwork.csproj">
       <Project>{505A9EBD-0B4A-4457-9C3B-22E31F319646}</Project>
       <Name>MetroNetwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestRequestHelpers\RestRequestHelpers.csproj">
+      <Project>{3C1C61B7-8B23-45C5-93EE-F6709A0700EC}</Project>
+      <Name>RestRequestHelpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZagrebMetroService\ZagrebMetroService.csproj">
       <Project>{3F782422-FAEF-478E-AC41-3DF65006E349}</Project>
