@@ -51,10 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FloydWarshall2.cs" />
+    <Compile Include="FloydWarshallAllShortestPathAlgorithmAllowNotZeroSelfCost.cs" />
     <Compile Include="IMetroNetworkGraph.cs" />
     <Compile Include="MetroNetwork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShortestCycleIncludedAGivenVertex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

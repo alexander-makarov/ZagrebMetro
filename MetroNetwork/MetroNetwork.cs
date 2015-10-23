@@ -5,6 +5,7 @@ using System.Text;
 using QuickGraph;
 using QuickGraph.Algorithms;
 using QuickGraph.Algorithms.Services;
+using QuickGraph.Data;
 
 namespace MetroNetwork
 {
@@ -68,20 +69,13 @@ namespace MetroNetwork
 
         public double GetPathDistanceBetweenStations(string from, string to)
         {
-            _costs.Add(new Edge<string>(from, to), Double.PositiveInfinity);
-            var edgeCost = AlgorithmExtensions.GetIndexer(_costs);
-
             if (from == to)
             {
                 // if wanna llok for shortest path from a vertex back to the same vertex
                 // i.e. shortest cycle included a given vertex
                 // use the Floyd-Warshall algorithm O(V^3)
-                var algorithm = new FloydWarshall2<string, Edge<string>>(_graph, edgeCost);
-                
-                algorithm.Compute();
-                
                 var distance = 0.0;
-                if (algorithm.TryGetDistance(from, to, out distance))
+                if (ShortestCycleIncludedAGivenVertex.TryGetDistanceFloydWarshall(_graph, _costs, from, out distance))
                 {
                     return distance;
                 }
@@ -89,6 +83,7 @@ namespace MetroNetwork
             }
             else // otherwise use Dijkstra
             {
+                var edgeCost = AlgorithmExtensions.GetIndexer(_costs);
                 var tryGetPath = _graph.ShortestPathsDijkstra(edgeCost, from);
                 IEnumerable<Edge<string>> path;
                 var isPathExists = tryGetPath(to, out path);
