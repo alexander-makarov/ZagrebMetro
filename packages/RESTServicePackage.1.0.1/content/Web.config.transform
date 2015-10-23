@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<configuration>
+
+  <system.web>
+    <compilation debug="true" targetFramework="4.0" />
+  </system.web>
+  
+
+  <system.serviceModel>
+
+    <bindings>
+      <!-- For use of Azure Service Bus -->
+      <!--<webHttpRelayBinding>
+        <binding name="NoAuth">
+          <security relayClientAuthenticationType="None" />
+        </binding>
+      </webHttpRelayBinding>-->
+    </bindings>
+
+    <services>
+      <service name="$rootnamespace$.RestService">
+
+        <endpoint address=""
+							 binding="webHttpBinding"
+							 contract="$rootnamespace$.RestService" />
+
+        <!-- For use of Azure Service Bus -->
+        <!--<endpoint address="https://[YOUR NAMESPACE].servicebus.windows.net/RestService"
+						  behaviorConfiguration="ServiceBusBehavior"
+						  bindingConfiguration="NoAuth"
+						  binding="webHttpRelayBinding"
+						  name="relay"
+						  contract="$rootnamespace$.RestService" />-->
+        
+      </service>
+    </services>
+
+    <behaviors>
+      <endpointBehaviors>
+        
+        <!--<behavior name="ServiceBusBehavior">
+          <transportClientEndpointBehavior>
+            <clientCredentials>
+              <sharedSecret issuerName="owner" issuerSecret="[YOUR KEY]" />
+            </clientCredentials>
+          </transportClientEndpointBehavior>
+          <serviceRegistrySettings discoveryMode="Public" displayName="REST Service" />
+        </behavior>-->
+        
+      </endpointBehaviors>
+    </behaviors>
+
+  </system.serviceModel>
+</configuration>

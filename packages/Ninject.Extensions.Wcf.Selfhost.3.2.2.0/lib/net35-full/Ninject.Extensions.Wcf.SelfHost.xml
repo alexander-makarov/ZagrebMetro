@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ninject.Extensions.Wcf.SelfHost</name>
+    </assembly>
+    <members>
+        <member name="T:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration">
+            <summary>
+            Configuration for a self hosted WCF Service.
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.Create``2">
+            <summary>
+            Creates a self host wcf configuration instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceHostFactory">The type of the service host factory.</typeparam>
+            <returns>The newly created NinjectWcfConfiguration instance.</returns>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.Create``2(System.Action{System.ServiceModel.ServiceHost})">
+            <summary>
+            Creates a self host wcf configuration instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceHostFactory">The type of the service host factory.</typeparam>
+            <param name="configureHost">The host configuration callback.</param>
+            <returns>The newly created NinjectWcfConfiguration instance.</returns>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.Create``2(System.Action{System.ServiceModel.ServiceHost},System.Uri[])">
+            <summary>
+            Creates a self host wcf configuration instance.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TServiceHostFactory">The type of the service host factory.</typeparam>
+            <param name="configureHost">The host configuration callback.</param>
+            <param name="baseAddresses">The base addresses of the wcf service.</param>
+            <returns>The newly created NinjectWcfConfiguration instance.</returns>
+        </member>
+        <member name="P:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.ServiceType">
+            <summary>
+            Gets the type of the service.
+            </summary>
+        </member>
+        <member name="P:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.ServiceHostFactoryType">
+            <summary>
+            Gets the type of the service host factory.
+            </summary>
+        </member>
+        <member name="P:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.ConfigureHost">
+            <summary>
+            Gets the host configuration callback.
+            </summary>
+        </member>
+        <member name="P:Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration.BaseAddresses">
+            <summary>
+            Gets the base addresses.
+            </summary>
+        </member>
+        <member name="T:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost">
+            <summary>
+            Web API self host for ninject web common
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost.#ctor(System.Collections.Generic.IEnumerable{Ninject.Extensions.Wcf.SelfHost.NinjectWcfConfiguration})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost"/> class.
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost.Start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHost.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposable"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHostModule">
+            <summary>
+            Module for the Ninject.Extensions.Wcf.SelfHost extension.
+            </summary>
+        </member>
+        <member name="M:Ninject.Extensions.Wcf.SelfHost.NinjectWcfSelfHostModule.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+    </members>
+</doc>

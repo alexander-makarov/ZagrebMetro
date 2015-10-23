@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZagrebMetroServiceRestJson"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroService", "ZagrebMetroService\ZagrebMetroService.csproj", "{3F782422-FAEF-478E-AC41-3DF65006E349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroService.Specs", "ZagrebMetroService.Specs\ZagrebMetroService.Specs.csproj", "{AA0909D2-59D7-4E04-B496-900252C2A729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroClient", "ZagrebMetroClient\ZagrebMetroClient.csproj", "{1653453E-DFCA-4E88-A1BF-D1D2E967333C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{3F782422-FAEF-478E-AC41-3DF65006E349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F782422-FAEF-478E-AC41-3DF65006E349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F782422-FAEF-478E-AC41-3DF65006E349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0909D2-59D7-4E04-B496-900252C2A729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0909D2-59D7-4E04-B496-900252C2A729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0909D2-59D7-4E04-B496-900252C2A729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0909D2-59D7-4E04-B496-900252C2A729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1653453E-DFCA-4E88-A1BF-D1D2E967333C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +60,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE} = {15212267-A75C-4D66-AA23-6619A28E7772}
 		{3F782422-FAEF-478E-AC41-3DF65006E349} = {15212267-A75C-4D66-AA23-6619A28E7772}
+		{AA0909D2-59D7-4E04-B496-900252C2A729} = {15212267-A75C-4D66-AA23-6619A28E7772}
+		{1653453E-DFCA-4E88-A1BF-D1D2E967333C} = {15212267-A75C-4D66-AA23-6619A28E7772}
 	EndGlobalSection
 EndGlobal

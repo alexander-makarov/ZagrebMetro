@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RESTServicePackage</id>
+    <version>1.0.1</version>
+    <title />
+    <authors>wmihaa</authors>
+    <owners>wmihaa</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds a REST service to the project</description>
+    <summary>Adds a REST service to the project</summary>
+    <tags>WCF REST</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Web" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Activation" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

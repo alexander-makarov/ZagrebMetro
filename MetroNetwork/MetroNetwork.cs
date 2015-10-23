@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetroNetwork
 {
-    public class MetroNetworkGraph
+    public class MetroNetworkGraph : IMetroNetworkGraph
     {
         private readonly SortedList<string, SortedList<string, int>> _graphNodes = new SortedList<string, SortedList<string, int>>();
         public void ReadFromString(string metroNetworkGraphStr)

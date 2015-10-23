@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Ninject.Extensions.Wcf.Selfhost</id>
+    <version>3.2.2.0</version>
+    <authors>Remo Gloor</authors>
+    <owners>Remo Gloor</owners>
+    <licenseUrl>https://github.com/ninject/ninject.extensions.wcf/raw/master/LICENSE.txt</licenseUrl>
+    <projectUrl>http://www.ninject.org/</projectUrl>
+    <iconUrl>https://github.com/ninject/ninject/raw/master/logos/Ninject-Logo32.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Ninject extension to add ioc for WCF services when self hosting.</description>
+    <summary>Ninject extension to add ioc for WCF services when self hosting.</summary>
+    <releaseNotes>https://github.com/ninject/Ninject.Extensions.Wcf/blob/master/ReleaseNotes.md</releaseNotes>
+    <language>en-US</language>
+    <tags>Ninject ioc di wcf</tags>
+    <dependencies>
+      <dependency id="Ninject.Web.Common.Selfhost" version="3.0.0.0" />
+      <dependency id="Ninject.Extensions.Wcf" version="[3.2.0.0, 3.3.0.0)" />
+    </dependencies>
+  </metadata>
+</package>
