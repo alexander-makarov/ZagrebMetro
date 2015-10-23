@@ -99,16 +99,24 @@ this.FeatureBackground();
                         "FromToConnections"});
             table1.AddRow(new string[] {
                         "From MAKSIMIR to SIGET -> 5"});
+            table1.AddRow(new string[] {
+                        "From SIGET to SPANSKO -> 4"});
+            table1.AddRow(new string[] {
+                        "From SPANSKO to MEDVESCAK -> 8"});
+            table1.AddRow(new string[] {
+                        "From MEDVESCAK to SPANSKO -> 8"});
+            table1.AddRow(new string[] {
+                        "From MEDVESCAK to DUBRAVA -> 6"});
+            table1.AddRow(new string[] {
+                        "From MAKSIMIR to MEDVESCAK -> 5"});
+            table1.AddRow(new string[] {
+                        "From SPANSKO to DUBRAVA -> 2"});
+            table1.AddRow(new string[] {
+                        "From DUBRAVA to SIGET -> 3"});
+            table1.AddRow(new string[] {
+                        "From MAKSIMIR to DUBRAVA -> 7"});
 #line 16
- testRunner.Then("all from the following \'<FromToConnections> should be printed on a screen", @"From MAKSIMIR to SIGET -> 5
-From SIGET to SPANSKO -> 4
-From SPANSKO to MEDVESCAK -> 8
-From MEDVESCAK to SPANSKO -> 8
-From MEDVESCAK to DUBRAVA -> 6
-From MAKSIMIR to MEDVESCAK -> 5
-From SPANSKO to DUBRAVA -> 2
-From DUBRAVA to SIGET -> 3
-From MAKSIMIR to DUBRAVA -> 7", table1, "Then ");
+ testRunner.Then("all from the following connections should be printed on a screen:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

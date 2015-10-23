@@ -13,18 +13,15 @@ Scenario: Read metro network graph from a string
 		MAKSIMIR-DUBRAVA:7
 		"""
 	When I read the metro network graph from a string
-	Then all from the following '<FromToConnections> should be printed on a screen
-		| FromToConnections |
-		| From MAKSIMIR to SIGET -> 5    |
-		"""
-		From MAKSIMIR to SIGET -> 5
-		From SIGET to SPANSKO -> 4
-		From SPANSKO to MEDVESCAK -> 8
-		From MEDVESCAK to SPANSKO -> 8
-		From MEDVESCAK to DUBRAVA -> 6
-		From MAKSIMIR to MEDVESCAK -> 5
-		From SPANSKO to DUBRAVA -> 2
-		From DUBRAVA to SIGET -> 3
-		From MAKSIMIR to DUBRAVA -> 7
-		"""
+	Then all from the following connections should be printed on a screen:
+		| FromToConnections					|
+		| From MAKSIMIR to SIGET -> 5		|
+		| From SIGET to SPANSKO -> 4		|
+		| From SPANSKO to MEDVESCAK -> 8	|
+		| From MEDVESCAK to SPANSKO -> 8	|
+		| From MEDVESCAK to DUBRAVA -> 6	|
+		| From MAKSIMIR to MEDVESCAK -> 5	|
+		| From SPANSKO to DUBRAVA -> 2		|
+		| From DUBRAVA to SIGET -> 3		|
+		| From MAKSIMIR to DUBRAVA -> 7		|
 	

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
 using MetroNetwork;
+using TechTalk.SpecFlow.Assist;
 
 namespace MetroNetworkReader.Specs
 {
@@ -33,11 +35,18 @@ namespace MetroNetworkReader.Specs
         {
             _metroNetwork.ReadFromString(_metroNetworkStr);
         }
-        
-        [Then(@"the following result should be printed on a screen")]
-        public void ThenTheFollowingResultShouldBePrintedOnAScreen(string multilineText)
+
+        [Then(@"all from the following connections should be printed on a screen:")]
+        public void ThenAllFromTheFollowingConnectionsShouldBePrintedOnAScreen(Table table)
         {
-            Assert.AreEqual(multilineText, _metroNetwork.ToString());
+            var metroString = _metroNetwork.ToString();
+            var fromToConnectionsToExists = table.Rows.ToList();
+
+            fromToConnectionsToExists.ForEach(connectionToExist =>
+            {
+                var expectedToContain = connectionToExist.Values.First();
+                Assert.IsTrue(metroString.Contains(expectedToContain), "Expected - '"+expectedToContain+"'");
+            });
         }
     }
 }
