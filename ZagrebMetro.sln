@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroNetworkReader.Specs", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroNetwork", "MetroNetwork\MetroNetwork.csproj", "{505A9EBD-0B4A-4457-9C3B-22E31F319646}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroNetworkService", "MetroNetworkService\MetroNetworkService.csproj", "{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZagrebMetroServiceRestJson", "ZagrebMetroServiceRestJson", "{15212267-A75C-4D66-AA23-6619A28E7772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZagrebMetroService", "ZagrebMetroService\ZagrebMetroService.csproj", "{3F782422-FAEF-478E-AC41-3DF65006E349}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,20 @@ Global
 		{505A9EBD-0B4A-4457-9C3B-22E31F319646}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{505A9EBD-0B4A-4457-9C3B-22E31F319646}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{505A9EBD-0B4A-4457-9C3B-22E31F319646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F782422-FAEF-478E-AC41-3DF65006E349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F782422-FAEF-478E-AC41-3DF65006E349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F782422-FAEF-478E-AC41-3DF65006E349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F782422-FAEF-478E-AC41-3DF65006E349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CCCBFE1-4827-4687-B2EB-7FCFF864D8CE} = {15212267-A75C-4D66-AA23-6619A28E7772}
+		{3F782422-FAEF-478E-AC41-3DF65006E349} = {15212267-A75C-4D66-AA23-6619A28E7772}
 	EndGlobalSection
 EndGlobal
