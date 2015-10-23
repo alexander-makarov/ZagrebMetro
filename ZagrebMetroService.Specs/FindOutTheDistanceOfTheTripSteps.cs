@@ -36,8 +36,8 @@ namespace ZagrebMetroService.Specs
             _host = new ServiceHost(zgMetro);
             _host.Open();
         }
-        
-        [Given(@"the following JSON data structure with stations provided")]
+
+        [Given(@"the following JSON data structure with stations provided '(.*)'")]
         public void GivenTheFollowingJSONDataStructureWithStationsProvided(string multilineText)
         {
             _jsonRequestContent = multilineText;
@@ -48,13 +48,16 @@ namespace ZagrebMetroService.Specs
         {
             _jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/distance/", _jsonRequestContent); 
         }
-        
-        [Then(@"I get as a response the following JSON data structure")]
+
+        [Then(@"I get as a response the following JSON data structure '(.*)'")]
         public void ThenIGetAsAResponseTheFollowingJSONDataStructure(string expectedJsonResponse)
         {
             dynamic expected = JObject.Parse(expectedJsonResponse);
             dynamic actual = JObject.Parse(_jsonResponseContent);
             Assert.IsTrue(JToken.DeepEquals(expected, actual), "expected: {0}, but actual:{1}", expected, actual);
         }
+
+
+
     }
 }
