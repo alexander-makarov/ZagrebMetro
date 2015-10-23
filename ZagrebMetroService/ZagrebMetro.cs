@@ -32,7 +32,6 @@ namespace ZagrebMetroService
                     if (distance < 0)
                     {
                         return "NO SUCH ROUTE";
-                        break; // return "NO SUCH ROUTE"
                     }
                     wholeDistance += distance;
                 }

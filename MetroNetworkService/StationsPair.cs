@@ -2,12 +2,15 @@
 
 namespace MetroNetworkService
 {
-    [DataContract]
+    //[DataContract]
+    [DataContract(Name = "stations")]
     public struct StationsPair
     {
-        [DataMember]
+        //[DataMember]
+        [DataMember(Name = "start", EmitDefaultValue = false)]
         public string Start { get; set; }
-        [DataMember]
+        //[DataMember]
+        [DataMember(Name = "end", EmitDefaultValue = false)]
         public string End { get; set; }
     }
 }

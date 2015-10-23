@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,10 +45,10 @@ namespace RestRequestHelpers
                 using (Stream responseStream = errorResponse.GetResponseStream())
                 {
                     StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("utf-8"));
-                    String errorText = reader.ReadToEnd();
-                    // log errorText
+                    String errorText = reader.ReadToEnd(); //xml-html fault message
+                    var exc = new WebException(errorText, ex);
+                    throw exc;
                 }
-                throw;
             }
         }
     }

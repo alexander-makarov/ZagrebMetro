@@ -59,6 +59,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ShortestRouteDistanceOfTheTripSteps.cs" />
+    <Compile Include="ShortestRouteDistanceOfTheTrip.feature.cs">
+      <DependentUpon>ShortestRouteDistanceOfTheTrip.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="FindOutTheDistanceOfTheTripSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FindOutTheDistanceOfTheTrip.feature.cs">
@@ -69,6 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ShortestRouteDistanceOfTheTrip.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ShortestRouteDistanceOfTheTrip.feature.cs</LastGenOutput>
+    </None>
     <None Include="FindOutTheDistanceOfTheTrip.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>FindOutTheDistanceOfTheTrip.feature.cs</LastGenOutput>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using QuickGraph;
 using QuickGraph.Algorithms;
+using QuickGraph.Algorithms.ShortestPath;
 
 namespace MetroNetwork
 {
@@ -67,26 +68,44 @@ namespace MetroNetwork
 
         public double GetPathDistanceBetweenStations(string from, string to)
         {
+            _costs.Add(new Edge<string>(from, to), Double.PositiveInfinity);
             var edgeCost = AlgorithmExtensions.GetIndexer(_costs);
-            var tryGetPath = _graph.ShortestPathsDijkstra(edgeCost, from);
 
-            IEnumerable<Edge<string>> path;
-            bool isPathExists = tryGetPath(to, out path);
-            if (isPathExists)
+            if (from == to)
             {
-                var distance = path.Sum(edge => _costs[edge]);
-                return distance;
+                // if wanna llok for shortest path from a vertex back to the same vertex
+                // i.e. shortest cycle included a given vertex
+                // use the Floyd-Warshall algorithm O(V^3)
+                var algorithm = new FloydWarshallAllShortestPathAlgorithm<string, Edge<string>>(_graph, edgeCost);
+                
+                algorithm.Compute();
+                
+                var distance = 0.0;
+                if (algorithm.TryGetDistance(from, to, out distance))
+                {
+                    return distance;
+                }
+
             }
-            else
+            else // otherwise use Dijkstra
             {
-                return -1;
+                var tryGetPath = _graph.ShortestPathsDijkstra(edgeCost, from);
+                IEnumerable<Edge<string>> path;
+                var isPathExists = tryGetPath(to, out path);
+                if (isPathExists)
+                {
+                    var distance = path.Sum(edgeCost);
+                    return distance;
+                }
             }
+
+            return -1;
         }
 
         public double GetAdjacentPathDistanceBetweenStations(string from, string to)
         {
             Edge<string> routeFromTo;
-            _graph.TryGetEdge(from, to, out routeFromTo);
+            _graph.TryGetEdge(from, to, out routeFromTo); // i believe that works fine under the hood, one might check later
             // O(N) have to check every edge, not very efficient
             //var routeFromTo = _graph.Edges.SingleOrDefault(edge => (edge.Source == from && edge.Target == to));
             //var vFrom = _graph.Vertices.FirstOrDefault(v => v == from);

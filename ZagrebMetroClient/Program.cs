@@ -9,6 +9,7 @@ using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 using MetroNetwork;
+using MetroNetworkService;
 using Newtonsoft.Json;
 using Ninject;
 using Ninject.Extensions.Wcf;
@@ -49,8 +50,10 @@ namespace ZagrebMetroClient
                 #region
 
                 var l = new Msg() {stations = new List<string> {"gg", "tt"}};
-                var jsonContent = JsonConvert.SerializeObject(l);// "{\"stations\":\"spanko\"}"; //
-                var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/distance/", jsonContent);
+                //var jsonSerializerSettings = new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.All};
+                var jsonContent = JsonConvert.SerializeObject(new StationsPair { End = "e1", Start = "st1" });// "{\"stations\":\"spanko\"}"; //
+                //jsonContent = "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }";
+                var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", jsonContent);
                 Console.WriteLine("Response JSON={0}", jsonString);
 
                 

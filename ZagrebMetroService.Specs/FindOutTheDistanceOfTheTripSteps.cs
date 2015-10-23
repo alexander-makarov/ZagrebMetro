@@ -58,6 +58,11 @@ namespace ZagrebMetroService.Specs
         }
 
 
-
+        [When(@"I request: POST /zagreb-metro/trip/shortest/")]
+        public void WhenIRequestPOSTZagreb_MetroTripShortest()
+        {
+            //_jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/distance/", _jsonRequestContent); 
+            _jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", _jsonRequestContent); 
+        }
     }
 }

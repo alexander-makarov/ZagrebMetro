@@ -12,7 +12,7 @@ Background:
 		MAKSIMIR-DUBRAVA:7
 		"""
 
-Scenario Outline: f
+Scenario Outline: Find out the distance of the trip
 	Given the following JSON data structure with stations provided '<stationsOfTheTrip>'	  
 	When I request: POST /zagreb-metro/trip/distance
 	Then I get as a response the following JSON data structure '<distanceOfTheTrip>'	

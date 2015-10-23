@@ -82,9 +82,9 @@ namespace ZagrebMetroService.Specs
 #line hidden
         }
         
-        public virtual void F(string name, string stationsOfTheTrip, string distanceOfTheTrip, string[] exampleTags)
+        public virtual void FindOutTheDistanceOfTheTrip(string name, string stationsOfTheTrip, string distanceOfTheTrip, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("f", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find out the distance of the trip", exampleTags);
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -100,68 +100,68 @@ this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("f")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Distance9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Distance9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationsOfTheTrip", "{ \"stations\" : [\"MAKSIMIR\", \"SIGET\", \"SPANSKO\"] }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 9 }")]
-        public virtual void F_Distance9()
+        public virtual void FindOutTheDistanceOfTheTrip_Distance9()
         {
-            this.F("Distance9", "{ \"stations\" : [\"MAKSIMIR\", \"SIGET\", \"SPANSKO\"] }", "{ \"distance\" : 9 }", ((string[])(null)));
+            this.FindOutTheDistanceOfTheTrip("Distance9", "{ \"stations\" : [\"MAKSIMIR\", \"SIGET\", \"SPANSKO\"] }", "{ \"distance\" : 9 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("f")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Distance5")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Distance5")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationsOfTheTrip", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\"] }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 5 }")]
-        public virtual void F_Distance5()
+        public virtual void FindOutTheDistanceOfTheTrip_Distance5()
         {
-            this.F("Distance5", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\"] }", "{ \"distance\" : 5 }", ((string[])(null)));
+            this.FindOutTheDistanceOfTheTrip("Distance5", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\"] }", "{ \"distance\" : 5 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("f")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Distance13")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Distance13")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationsOfTheTrip", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\", \"SPANSKO\"] }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 13 }")]
-        public virtual void F_Distance13()
+        public virtual void FindOutTheDistanceOfTheTrip_Distance13()
         {
-            this.F("Distance13", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\", \"SPANSKO\"] }", "{ \"distance\" : 13 }", ((string[])(null)));
+            this.FindOutTheDistanceOfTheTrip("Distance13", "{ \"stations\" : [\"MAKSIMIR\", \"MEDVESCAK\", \"SPANSKO\"] }", "{ \"distance\" : 13 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("f")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Distance22")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "Distance22")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationsOfTheTrip", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"SIGET\", \"SPANSKO\", \"MEDVESCAK\"] }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 22 }")]
-        public virtual void F_Distance22()
+        public virtual void FindOutTheDistanceOfTheTrip_Distance22()
         {
-            this.F("Distance22", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"SIGET\", \"SPANSKO\", \"MEDVESCAK\"] }", "{ \"distance\" : 22 }", ((string[])(null)));
+            this.FindOutTheDistanceOfTheTrip("Distance22", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"SIGET\", \"SPANSKO\", \"MEDVESCAK\"] }", "{ \"distance\" : 22 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("f")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Find out the distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "NoSuchRoute")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "NoSuchRoute")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationsOfTheTrip", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"MEDVESCAK\"] }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : \"NO SUCH ROUTE\" }")]
-        public virtual void F_NoSuchRoute()
+        public virtual void FindOutTheDistanceOfTheTrip_NoSuchRoute()
         {
-            this.F("NoSuchRoute", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"MEDVESCAK\"] }", "{ \"distance\" : \"NO SUCH ROUTE\" }", ((string[])(null)));
+            this.FindOutTheDistanceOfTheTrip("NoSuchRoute", "{ \"stations\" : [\"MAKSIMIR\", \"DUBRAVA\", \"MEDVESCAK\"] }", "{ \"distance\" : \"NO SUCH ROUTE\" }", ((string[])(null)));
         }
     }
 }
