@@ -14,6 +14,15 @@ namespace MetroNetworkService
             UriTemplate = "trip/distance/")]
         [return: MessageParameter(Name = "distance")]
         [OperationContract]
-        int GetTripDistance(IEnumerable<string> stations);
+        object GetTripDistance(IEnumerable<string> stations);
+
+        [WebInvoke(Method = "POST",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "trip/shortest/")]
+        [return: MessageParameter(Name = "distance")]
+        [OperationContract]
+        object GetShortestTripDistance(StationsPair stations);
     }
 }

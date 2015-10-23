@@ -18,9 +18,38 @@ namespace ZagrebMetroService
         }
 
 
-        public int GetTripDistance(IEnumerable<string> stations)
+        public object GetTripDistance(IEnumerable<string> stations)
         {
-            return 9;
+            var enumerable = stations as IList<string> ?? stations.ToList();
+            var iter = enumerable.GetEnumerator();
+            string from = null;
+            var wholeDistance = 0.0;
+            while (iter.MoveNext())
+            {
+                if (from != null)
+                {
+                    var distance = _metroNetwork.GetAdjacentPathDistanceBetweenStations(from, iter.Current);
+                    if (distance < 0)
+                    {
+                        return "NO SUCH ROUTE";
+                        break; // return "NO SUCH ROUTE"
+                    }
+                    wholeDistance += distance;
+                }
+                from = iter.Current;
+            }
+
+            return (int)wholeDistance;
+        }
+
+        public object GetShortestTripDistance(StationsPair stations)
+        {
+            var distance = _metroNetwork.GetPathDistanceBetweenStations(stations.Start, stations.End);
+            if (distance < 0)
+            {
+                return "NO SUCH ROUTE";
+            }
+            return (int)distance;
         }
     }
 }
