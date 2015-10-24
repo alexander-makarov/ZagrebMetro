@@ -16,7 +16,8 @@ Scenario Outline: Find out trips which are starting and ending at the same stati
 	When GET /zagreb-metro/trip/round/count/'<station>'
 	Then I get as a response the following JSON data structure '<roundTrips>'	
 	Examples: 
-		|		 Name			| station		| roundTrips																							|
-		|	RoundTripsSpansko	| SPANSKO 		| { "count" : 2, "roundtrips" : ["SPANSKO-MEDVESCAK-SPANSKO", "SPANSKO-DUBRAVA-SIGET-SPANSKO"] }		|
-		|	RoundTripsMEDVESCAK	| MEDVESCAK 	| { "count" : 0, "roundtrips" : [] }		|
+		|		 Name			| station		| roundTrips																						|
+		|	RoundTripsSpansko	| SPANSKO 		| { "count" : 2, "roundtrips" : ["SPANSKO-MEDVESCAK-SPANSKO", "SPANSKO-DUBRAVA-SIGET-SPANSKO"] }	|
+		|	RoundTripsMaksimir	| MAKSIMIR 		| { "count" : 0, "roundtrips" : [] }																|
+		|	RoundTripsMedvescak	| MEDVESCAK 	| { "count" : 1, "roundtrips" : ["MEDVESCAK-SPANSKO-MEDVESCAK"] }									|
 		
