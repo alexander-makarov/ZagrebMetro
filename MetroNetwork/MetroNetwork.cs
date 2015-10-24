@@ -104,13 +104,13 @@ namespace MetroNetwork
         public IEnumerable<string> GetRoutingTripsForStation(string station)
         {
             // create algorithm
-            var dfs = new ImplicitDepthFirstSearchAlgorithm<string, Edge<string>>(_graph);
+            var dfs = new BreadthFirstSearchAlgorithm<string, Edge<string>>(_graph);
             dfs.SetRootVertex(station);
-            var lstttt = new List<string>();
+            var lstttt = new List<List<string>>();
 
-            for (int i = 0; i < 3; i++)
+            //for (int i = 0; i < 3; i++)
             {
-                dfs.MaxDepth = i;
+                //dfs. = i;
 
                 var observer = new VertexPredecessorRecorderObserver<string, Edge<string>>();
                 List<string> vertexPredecessors = new List<string>();
@@ -124,15 +124,27 @@ namespace MetroNetwork
                             var l = _graph.OutEdges(v);
                             if (l.Any(adj => adj.Target == station))
                             {
-                                var strPath = station;
-                                foreach (var kv in observer.VertexPredecessors.Reverse())
+                                var inner = new List<string>();
+                                inner.Add(station);
+                                var pred = observer.VertexPredecessors.Last().Value;
+                                while (pred != null)
                                 {
-                                    strPath += "-" + kv.Key;
+                                    inner.Add(pred.Target);
+                                    if (observer.VertexPredecessors.ContainsKey(pred.Source))
+                                    {
+                                        pred = observer.VertexPredecessors[pred.Source];
+                                    }
+                                    else
+                                    {
+                                        inner.Add(pred.Source);
+                                        break;
+                                    }
                                     //strPath += "-" + kv.Value.Source;
                                     //strPath = strPath.TrimEnd('-');
                                 }
-                                strPath += "-" + station;
-                                lstttt.Add(strPath);
+                                //strPath += "-" + station;
+                                inner.Reverse();
+                                lstttt.Add(inner);
                             }
                         }
                     };
@@ -140,13 +152,22 @@ namespace MetroNetwork
                     //dfs.Visit(station);
                 }
             }
+
+            var stringCycles = lstttt.Select(
+                pathList =>
+                {
+                    var fffstr = "";
+                    pathList.ForEach(s => fffstr += s + "-");
+                    fffstr = fffstr.TrimEnd('-');
+                    return fffstr;
+                });
             
             var g = dfs.VisitedGraph;
             //var c = dfs.GetVertexColor("MAKSIMIR");
             //c = dfs.GetVertexColor("SIGET");
             //c = dfs.GetVertexColor("DUBRAVA");
             //c = dfs.GetVertexColor("MEDVESCAK");
-            var fffstr = "";
+            //var fffstr = "";
             //IEnumerable<Edge<string>> edges;
             //if (observer.TryGetPath(station, out edges))
             //{
@@ -164,29 +185,29 @@ namespace MetroNetwork
             //}
 
             #region tarjan strong components
-            IDictionary<string, int> components = new Dictionary<string, int>();  //Key: vertex, Value: subgraph index, 0-based.
-            _graph.StronglyConnectedComponents(out components);
-            Console.WriteLine("Graph contains {0} strongly connected components", components.Count);
-            foreach (var component in components)
-            {
-                var s = component.ToString();
+            //IDictionary<string, int> components = new Dictionary<string, int>();  //Key: vertex, Value: subgraph index, 0-based.
+            //_graph.StronglyConnectedComponents(out components);
+            //Console.WriteLine("Graph contains {0} strongly connected components", components.Count);
+            //foreach (var component in components)
+            //{
+            //    var s = component.ToString();
                 
-                Console.WriteLine("Vertex {0} is connected to subgraph {1}", component.Key, component.Value);
-            }
+            //    Console.WriteLine("Vertex {0} is connected to subgraph {1}", component.Key, component.Value);
+            //}
             
-            // Group and filter the dictionary
-            var cycles = components
-                .GroupBy(x => x.Value, x => x.Key)
-                //.Where(x => x.Count() > 1)
-                .Select(x => x.ToList()).ToList();
-            var stringCycles = cycles.Select(
-                pathList =>
-                {
-                    fffstr = "";
-                    pathList.ForEach(s => fffstr += s + "-");
-                    fffstr = fffstr.TrimEnd('-');
-                    return fffstr;
-                });
+            //// Group and filter the dictionary
+            //var cycles = components
+            //    .GroupBy(x => x.Value, x => x.Key)
+            //    //.Where(x => x.Count() > 1)
+            //    .Select(x => x.ToList()).ToList();
+            //var stringCycles = cycles.Select(
+            //    pathList =>
+            //    {
+            //        fffstr = "";
+            //        pathList.ForEach(s => fffstr += s + "-");
+            //        fffstr = fffstr.TrimEnd('-');
+            //        return fffstr;
+            //    });
             #endregion
 
             return stringCycles;

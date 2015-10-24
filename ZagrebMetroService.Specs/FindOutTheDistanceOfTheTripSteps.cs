@@ -59,6 +59,14 @@ namespace ZagrebMetroService.Specs
             Assert.IsTrue(JToken.DeepEquals(expected, actual), "expected: {0}, but actual:{1}", expected, actual);
         }
 
+        //[Then(@"I get as a response the following JSON data structure2 '(.*)'")]
+        //public void ThenIGetAsAResponseTheFollowingJSONDataStructure2(string expectedJsonResponse)
+        //{
+        //    RoundTripsList expected = JsonConvert.DeserializeObject<RoundTripsList>(expectedJsonResponse);
+        //    RoundTripsList actual = JsonConvert.DeserializeObject<RoundTripsList>(_jsonResponseContent);
+        //    Assert.IsTrue(expected==actual, "expected: {0}, but actual:{1}", expected, actual);
+        //}
+
 
         [When(@"I request: POST /zagreb-metro/trip/shortest/")]
         public void WhenIRequestPOSTZagreb_MetroTripShortest()

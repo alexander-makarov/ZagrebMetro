@@ -18,4 +18,5 @@ Scenario Outline: Find out trips which are starting and ending at the same stati
 	Examples: 
 		|		 Name			| station		| roundTrips																							|
 		|	RoundTripsSpansko	| SPANSKO 		| { "count" : 2, "roundtrips" : ["SPANSKO-MEDVESCAK-SPANSKO", "SPANSKO-DUBRAVA-SIGET-SPANSKO"] }		|
+		|	RoundTripsMEDVESCAK	| MEDVESCAK 	| { "count" : 0, "roundtrips" : [] }		|
 		

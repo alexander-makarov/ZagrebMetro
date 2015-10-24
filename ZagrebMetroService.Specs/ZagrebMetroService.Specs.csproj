@@ -59,6 +59,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="RoundTripsForStationSteps.cs" />
     <Compile Include="RoundTripsForStation.feature.cs">
       <DependentUpon>RoundTripsForStation.feature</DependentUpon>
       <AutoGen>True</AutoGen>

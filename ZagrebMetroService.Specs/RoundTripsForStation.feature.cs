@@ -113,6 +113,20 @@ this.FeatureBackground();
             this.FindOutTripsWhichAreStartingAndEndingAtTheSameStationWithAMaximumOf3Stops("RoundTripsSpansko", "SPANSKO", "{ \"count\" : 2, \"roundtrips\" : [\"SPANSKO-MEDVESCAK-SPANSKO\", \"SPANSKO-DUBRAVA-SIGE" +
                     "T-SPANSKO\"] }", ((string[])(null)));
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out trips which are starting and ending at the same station with a maximum o" +
+            "f 3 stops")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Round trips for station")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "RoundTripsMEDVESCAK")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "RoundTripsMEDVESCAK")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:station", "MEDVESCAK")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:roundTrips", "{ \"count\" : 0, \"roundtrips\" : [] }")]
+        public virtual void FindOutTripsWhichAreStartingAndEndingAtTheSameStationWithAMaximumOf3Stops_RoundTripsMEDVESCAK()
+        {
+            this.FindOutTripsWhichAreStartingAndEndingAtTheSameStationWithAMaximumOf3Stops("RoundTripsMEDVESCAK", "MEDVESCAK", "{ \"count\" : 0, \"roundtrips\" : [] }", ((string[])(null)));
+        }
     }
 }
 #pragma warning restore

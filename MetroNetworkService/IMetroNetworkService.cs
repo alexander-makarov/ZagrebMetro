@@ -28,7 +28,7 @@ namespace MetroNetworkService
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             RequestFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "trip/round/count/{station}")]
         [OperationContract]
         RoundTripsList GetRoundTripsForStation(string station);
