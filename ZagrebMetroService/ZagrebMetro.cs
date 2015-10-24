@@ -41,6 +41,12 @@ namespace ZagrebMetroService
             return (int)wholeDistance;
         }
 
+        public RoundTripsList GetRoundTripsForStation(string station)
+        {
+            var roundPathes = _metroNetwork.GetRoutingTripsForStation(station).ToList();
+            return new RoundTripsList {RoundTrips = roundPathes, Count = roundPathes.Count};
+        }
+
         public object GetShortestTripDistance(StationsPair stations)
         {
             var distance = _metroNetwork.GetPathDistanceBetweenStations(stations.Start, stations.End);

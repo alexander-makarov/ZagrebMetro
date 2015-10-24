@@ -26,6 +26,10 @@ namespace ZagrebMetroClient
         {
             //Uri baseAddress = new Uri("http://localhost:8080/hello");
             var graph = new MetroNetworkGraph();
+            graph.ReadFromString(
+                @"MAKSIMIR-SIGET:5, SIGET-SPANSKO:4, SPANSKO-MEDVESCAK:8, MEDVESCAK-SPANSKO:8,
+		MEDVESCAK-DUBRAVA:6, MAKSIMIR-MEDVESCAK:5, SPANSKO-DUBRAVA:2, DUBRAVA-SIGET:3,
+		MAKSIMIR-DUBRAVA:7");
             var metro = new ZagrebMetro(graph);
             // Create the ServiceHost.
             using (ServiceHost host = new ServiceHost(metro))
@@ -49,11 +53,13 @@ namespace ZagrebMetroClient
 
                 #region
 
-                var l = new Msg() {stations = new List<string> {"gg", "tt"}};
-                //var jsonSerializerSettings = new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.All};
-                var jsonContent = JsonConvert.SerializeObject(new StationsPair { End = "e1", Start = "st1" });// "{\"stations\":\"spanko\"}"; //
-                //jsonContent = "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }";
-                var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", jsonContent);
+                
+                //var l = new Msg() {stations = new List<string> {"gg", "tt"}};
+                ////var jsonSerializerSettings = new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.All};
+                //var jsonContent = JsonConvert.SerializeObject(new StationsPair { End = "e1", Start = "st1" });// "{\"stations\":\"spanko\"}"; //
+                ////jsonContent = "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }";
+                //var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", jsonContent);
+                var jsonString = RestRequestHelper.GET(@"http://localhost:8733/zagreb-metro/trip/round/count/SPANSKO"); 
                 Console.WriteLine("Response JSON={0}", jsonString);
 
                 

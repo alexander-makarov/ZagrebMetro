@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ServiceModel;
 using MetroNetwork;
+using MetroNetworkService;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestRequestHelpers;
 using TechTalk.SpecFlow;
@@ -52,7 +54,7 @@ namespace ZagrebMetroService.Specs
         [Then(@"I get as a response the following JSON data structure '(.*)'")]
         public void ThenIGetAsAResponseTheFollowingJSONDataStructure(string expectedJsonResponse)
         {
-            dynamic expected = JObject.Parse(expectedJsonResponse);
+            dynamic expected = JObject.Parse(expectedJsonResponse); //JsonConvert.DeserializeObject<RoundTripsList>(expectedJsonResponse);
             dynamic actual = JObject.Parse(_jsonResponseContent);
             Assert.IsTrue(JToken.DeepEquals(expected, actual), "expected: {0}, but actual:{1}", expected, actual);
         }
@@ -61,8 +63,14 @@ namespace ZagrebMetroService.Specs
         [When(@"I request: POST /zagreb-metro/trip/shortest/")]
         public void WhenIRequestPOSTZagreb_MetroTripShortest()
         {
-            //_jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/distance/", _jsonRequestContent); 
             _jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", _jsonRequestContent); 
         }
+
+        [When(@"GET /zagreb-metro/trip/round/count/'(.*)'")]
+        public void WhenGETZagreb_MetroTripRoundCount(string station)
+        {
+            _jsonResponseContent = RestRequestHelper.GET(@"http://localhost:8733/zagreb-metro/trip/round/count/"+station); 
+        }
+
     }
 }

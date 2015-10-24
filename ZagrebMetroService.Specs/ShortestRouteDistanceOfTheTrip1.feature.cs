@@ -82,9 +82,9 @@ namespace ZagrebMetroService.Specs
 #line hidden
         }
         
-        public virtual void FindOutTheShortestRoutDistanceOfTheTrip(string name, string stationPairs, string distanceOfTheTrip, string[] exampleTags)
+        public virtual void FindOutTheShortestRouteDistanceOfTheTrip(string name, string stationPairs, string distanceOfTheTrip, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find out the shortest rout distance of the trip", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find out the shortest route distance of the trip", exampleTags);
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -100,42 +100,55 @@ this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest rout distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DistanceMaksimirSpansko9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "DistanceMaksimirSpansko9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationPairs", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" } }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 9 }")]
-        public virtual void FindOutTheShortestRoutDistanceOfTheTrip_DistanceMaksimirSpansko9()
+        public virtual void FindOutTheShortestRouteDistanceOfTheTrip_DistanceMaksimirSpansko9()
         {
-            this.FindOutTheShortestRoutDistanceOfTheTrip("DistanceMaksimirSpansko9", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" } }", "{ \"distance\" : 9 }", ((string[])(null)));
+            this.FindOutTheShortestRouteDistanceOfTheTrip("DistanceMaksimirSpansko9", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" } }", "{ \"distance\" : 9 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest rout distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DistanceSigetSiget9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "DistanceSigetSiget9")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationPairs", "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 9 }")]
-        public virtual void FindOutTheShortestRoutDistanceOfTheTrip_DistanceSigetSiget9()
+        public virtual void FindOutTheShortestRouteDistanceOfTheTrip_DistanceSigetSiget9()
         {
-            this.FindOutTheShortestRoutDistanceOfTheTrip("DistanceSigetSiget9", "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }", "{ \"distance\" : 9 }", ((string[])(null)));
+            this.FindOutTheShortestRouteDistanceOfTheTrip("DistanceSigetSiget9", "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }", "{ \"distance\" : 9 }", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest rout distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Shortest route distance of the trip")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "NoSuchRoute")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "NoSuchRoute")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationPairs", "{ \"stations\" : { \"start\" : \"DUBRAVA\", \"end\" : \"MAKSIMIR\" } }")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : \"NO SUCH ROUTE\" }")]
-        public virtual void FindOutTheShortestRoutDistanceOfTheTrip_NoSuchRoute()
+        public virtual void FindOutTheShortestRouteDistanceOfTheTrip_NoSuchRoute()
         {
-            this.FindOutTheShortestRoutDistanceOfTheTrip("NoSuchRoute", "{ \"stations\" : { \"start\" : \"DUBRAVA\", \"end\" : \"MAKSIMIR\" } }", "{ \"distance\" : \"NO SUCH ROUTE\" }", ((string[])(null)));
+            this.FindOutTheShortestRouteDistanceOfTheTrip("NoSuchRoute", "{ \"stations\" : { \"start\" : \"DUBRAVA\", \"end\" : \"MAKSIMIR\" } }", "{ \"distance\" : \"NO SUCH ROUTE\" }", ((string[])(null)));
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Find out the shortest route distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Shortest route distance of the trip")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("operateOnSelfHostedWcfService")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "DistanceSpanskoSpansko2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "DistanceSpanskoSpansko2")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:stationPairs", "{ \"stations\" : { \"start\" : \"SPANSKO\", \"end\" : \"SPANSKO\" } }")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:distanceOfTheTrip", "{ \"distance\" : 9 }")]
+        public virtual void FindOutTheShortestRouteDistanceOfTheTrip_DistanceSpanskoSpansko2()
+        {
+            this.FindOutTheShortestRouteDistanceOfTheTrip("DistanceSpanskoSpansko2", "{ \"stations\" : { \"start\" : \"SPANSKO\", \"end\" : \"SPANSKO\" } }", "{ \"distance\" : 9 }", ((string[])(null)));
         }
     }
 }

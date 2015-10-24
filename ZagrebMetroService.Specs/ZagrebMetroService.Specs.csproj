@@ -59,9 +59,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ShortestRouteDistanceOfTheTripSteps.cs" />
-    <Compile Include="ShortestRouteDistanceOfTheTrip.feature.cs">
-      <DependentUpon>ShortestRouteDistanceOfTheTrip.feature</DependentUpon>
+    <Compile Include="RoundTripsForStation.feature.cs">
+      <DependentUpon>RoundTripsForStation.feature</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -72,12 +71,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FindOutTheDistanceOfTheTrip.feature</DependentUpon>
     </Compile>
+    <Compile Include="ShortestRouteDistanceOfTheTrip1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShortestRouteDistanceOfTheTrip.feature</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="RoundTripsForStation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RoundTripsForStation.feature.cs</LastGenOutput>
+    </None>
     <None Include="ShortestRouteDistanceOfTheTrip.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ShortestRouteDistanceOfTheTrip.feature.cs</LastGenOutput>
+      <LastGenOutput>ShortestRouteDistanceOfTheTrip1.feature.cs</LastGenOutput>
     </None>
     <None Include="FindOutTheDistanceOfTheTrip.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

@@ -24,5 +24,13 @@ namespace MetroNetworkService
         [return: MessageParameter(Name = "distance")]
         [OperationContract]
         object GetShortestTripDistance(StationsPair stations);
+
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "trip/round/count/{station}")]
+        [OperationContract]
+        RoundTripsList GetRoundTripsForStation(string station);
     }
 }

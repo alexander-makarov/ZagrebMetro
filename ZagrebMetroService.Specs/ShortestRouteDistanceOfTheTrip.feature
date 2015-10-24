@@ -12,7 +12,7 @@ Background:
 		MAKSIMIR-DUBRAVA:7
 		"""
 
-Scenario Outline: Find out the shortest rout distance of the trip
+Scenario Outline: Find out the shortest route distance of the trip
 	Given the following JSON data structure with stations provided '<stationPairs>'	  
 	When I request: POST /zagreb-metro/trip/shortest/
 	Then I get as a response the following JSON data structure '<distanceOfTheTrip>'	
@@ -21,3 +21,4 @@ Scenario Outline: Find out the shortest rout distance of the trip
 		|	 DistanceMaksimirSpansko9		| { "stations" : { "start" : "MAKSIMIR", "end" : "SPANSKO" } } 			| { "distance" : 9 }				|
 		|	 DistanceSigetSiget9			| { "stations" : { "start" : "SIGET", "end" : "SIGET" } }				| { "distance" : 9 }				|
 		|	 NoSuchRoute					| { "stations" : { "start" : "DUBRAVA", "end" : "MAKSIMIR" } }			| { "distance" : "NO SUCH ROUTE" }	|
+		|	 DistanceSpanskoSpansko2		| { "stations" : { "start" : "SPANSKO", "end" : "SPANSKO" } }			| { "distance" : 9 }				|

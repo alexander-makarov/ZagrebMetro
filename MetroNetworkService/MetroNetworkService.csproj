@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="IMetroNetworkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundTripsList.cs" />
     <Compile Include="StationsPair.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
