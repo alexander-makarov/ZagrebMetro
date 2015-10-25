@@ -9,5 +9,6 @@ namespace MetroNetwork
         double GetAdjacentPathDistanceBetweenStations(string from, string to);
 
         IEnumerable<string> GetRoutingTripsForStation(string station);
+        IEnumerable<string> GetAllPossibleTripsBetweenStations(string start, string end, int exactStopsInBetween);
     }
 }

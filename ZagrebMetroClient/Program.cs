@@ -58,8 +58,9 @@ namespace ZagrebMetroClient
                 ////var jsonSerializerSettings = new JsonSerializerSettings() {TypeNameHandling = TypeNameHandling.All};
                 //var jsonContent = JsonConvert.SerializeObject(new StationsPair { End = "e1", Start = "st1" });// "{\"stations\":\"spanko\"}"; //
                 ////jsonContent = "{ \"stations\" : { \"start\" : \"SIGET\", \"end\" : \"SIGET\" } }";
-                //var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", jsonContent);
-                var jsonString = RestRequestHelper.GET(@"http://localhost:8733/zagreb-metro/trip/round/count/SPANSKO"); 
+                var jsonContent = "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" }, \"stops\": 4 }";
+                var jsonString = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/count/", jsonContent);
+                //var jsonString = RestRequestHelper.GET(@"http://localhost:8733/zagreb-metro/trip/round/count/SPANSKO"); 
                 Console.WriteLine("Response JSON={0}", jsonString);
 
                 

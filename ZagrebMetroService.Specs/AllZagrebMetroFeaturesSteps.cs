@@ -11,7 +11,7 @@ using TechTalk.SpecFlow;
 namespace ZagrebMetroService.Specs
 {
     [Binding]
-    public class FindOutTheDistanceOfTheTripSteps
+    public class AllZagrebMetroFeaturesSteps
     {
         private static ServiceHost _host = null;
         private static string _jsonRequestContent;
@@ -58,21 +58,20 @@ namespace ZagrebMetroService.Specs
             dynamic actual = JObject.Parse(_jsonResponseContent);
             Assert.IsTrue(JToken.DeepEquals(expected, actual), "expected: {0}, but actual:{1}", expected, actual);
         }
-
-        //[Then(@"I get as a response the following JSON data structure2 '(.*)'")]
-        //public void ThenIGetAsAResponseTheFollowingJSONDataStructure2(string expectedJsonResponse)
-        //{
-        //    RoundTripsList expected = JsonConvert.DeserializeObject<RoundTripsList>(expectedJsonResponse);
-        //    RoundTripsList actual = JsonConvert.DeserializeObject<RoundTripsList>(_jsonResponseContent);
-        //    Assert.IsTrue(expected==actual, "expected: {0}, but actual:{1}", expected, actual);
-        //}
-
+        
 
         [When(@"I request: POST /zagreb-metro/trip/shortest/")]
         public void WhenIRequestPOSTZagreb_MetroTripShortest()
         {
             _jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/shortest/", _jsonRequestContent); 
         }
+
+        [When(@"I request: POST /zagreb-metro/trip/count")]
+        public void WhenIRequestPOSTZagreb_MetroTripCount()
+        {
+            _jsonResponseContent = RestRequestHelper.POST(@"http://localhost:8733/zagreb-metro/trip/count/", _jsonRequestContent);
+        }
+
 
         [When(@"GET /zagreb-metro/trip/round/count/'(.*)'")]
         public void WhenGETZagreb_MetroTripRoundCount(string station)

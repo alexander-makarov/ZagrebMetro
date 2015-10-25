@@ -32,5 +32,13 @@ namespace MetroNetworkService
             UriTemplate = "trip/round/count/{station}")]
         [OperationContract]
         RoundTripsList GetRoundTripsForStation(string station);
+
+        [WebInvoke(Method = "POST",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            UriTemplate = "trip/count/")]
+        [OperationContract]
+        StopsInTripsList GetAllPossibleTripsBetweenStations(StationsPair stations, int exactStopsInBetween);
     }
 }
