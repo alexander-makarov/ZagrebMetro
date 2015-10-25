@@ -108,12 +108,12 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "MaksimirSpansko")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Name", "MaksimirSpansko")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:StationPairsAndStopsInBetweenAmount", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" }, \"stops\": 4 }")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AllPossibleTripsWithAmountOfStops", "{ \"count\" : 3, \"stops\" : [ “SIGET-SPANSKO-MEDVESCAK”, “MEDVESCAK-SPANSKO-MEDVESCA" +
-            "K”, “MEDVESCAK-DUBRAVA-SIGET”]}")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AllPossibleTripsWithAmountOfStops", "{ \"count\" : 3, \"stops\" : [ \"SIGET-SPANSKO-MEDVESCAK\", \"MEDVESCAK-SPANSKO-MEDVESCA" +
+            "K\", \"MEDVESCAK-DUBRAVA-SIGET\"]}")]
         public virtual void FindOutHowManyTripsThereAreStartingAtOneStationAndEndingAtAnotherStationWithExactly4Stops_MaksimirSpansko()
         {
-            this.FindOutHowManyTripsThereAreStartingAtOneStationAndEndingAtAnotherStationWithExactly4Stops("MaksimirSpansko", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" }, \"stops\": 4 }", "{ \"count\" : 3, \"stops\" : [ “SIGET-SPANSKO-MEDVESCAK”, “MEDVESCAK-SPANSKO-MEDVESCA" +
-                    "K”, “MEDVESCAK-DUBRAVA-SIGET”]}", ((string[])(null)));
+            this.FindOutHowManyTripsThereAreStartingAtOneStationAndEndingAtAnotherStationWithExactly4Stops("MaksimirSpansko", "{ \"stations\" : { \"start\" : \"MAKSIMIR\", \"end\" : \"SPANSKO\" }, \"stops\": 4 }", "{ \"count\" : 3, \"stops\" : [ \"SIGET-SPANSKO-MEDVESCAK\", \"MEDVESCAK-SPANSKO-MEDVESCA" +
+                    "K\", \"MEDVESCAK-DUBRAVA-SIGET\"]}", ((string[])(null)));
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
