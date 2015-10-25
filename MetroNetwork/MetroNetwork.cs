@@ -119,7 +119,7 @@ namespace MetroNetwork
         {
             var result = new List<string>();
 
-            _maxDepthOfRecursiveTraversal = 4;
+            _maxDepthOfRecursiveTraversal = exactStopsInBetween;
             var allRoutes = GetStationRoutesFromRecursive(start, 0, "not-existent-root-station-to-allow-loops");
             var onlyCycles = allRoutes.Where(rt =>
                 rt.Last() == start &&
@@ -134,13 +134,14 @@ namespace MetroNetwork
                 var str = sb.ToString().TrimEnd('-');
                 result.Add(str);
             }
+
             #region RankedShortestPathHoffmanPavley from quickgraph, but it finds only loopless kth shortest pathes, whereas we need loops too
             //var edgeCost = new Func<Edge<string>, double>(e => 1); //AlgorithmExtensions.GetIndexer(_costs);
             //var hoffmanPavley = _graph.RankedShortestPathHoffmanPavley(edgeCost, start, end, 4 + 2);
             //foreach (IEnumerable<Edge<string>> path in hoffmanPavley)
             //{
             //    var sb = new StringBuilder();
-            //    path.WithoutLast().ToList().ForEach(s => sb.Append(s.Target).Append("-"));
+            //    path.ToList().GetRange(0, cycle.Count - 1).ForEach(s => sb.Append(s.Target).Append("-"));
             //    var str = sb.ToString().TrimEnd('-');
             //    result.Add(str);
             //}
@@ -233,219 +234,10 @@ namespace MetroNetwork
             return result;
         }
 
-        //public IEnumerable<string> GetRoutingTripsForStation(string station)
-        //{
-        //    // create algorithm
-        //    var dfs = new DepthFirstSearchAlgorithm<string, Edge<string>>(_graph);
-        //    dfs.SetRootVertex(station);
-        //    var lstttt = new List<List<string>>();
-
-        //    //for (int i = 0; i < 3; i++)
-        //    {
-        //        //dfs. = i;
-
-        //        var observer = new VertexPredecessorRecorderObserver<string, Edge<string>>();
-        //        observer.VertexPredecessors.Add(station, null);
-        //        List<string> visitedVErtices = new List<string>();
-        //        using (observer.Attach(dfs)) // attach, detach to dfs events
-        //        {
-        //            dfs.ExamineEdge += e =>
-        //            {
-        //                var v = e.Target;
-        //                visitedVErtices.Add(v);
-        //                if (v != station)
-        //                {
-        //                    var l = _graph.OutEdges(v);
-        //                    if (l.Any(adj => lstttt.Any(innerL => innerL.Contains(adj.Target))))
-        //                    {
-        //                        var connectedToCyclic = l.Where((adj => lstttt.Any(innerL => innerL.Contains(adj.Target))));
-        //                        foreach (var frontEnd in connectedToCyclic)
-        //                        {
-        //                            var inner = new List<string>();
-
-        //                            string end = frontEnd.Target;
-        //                            var cycles = lstttt.Where(innerL => innerL.Contains(end));
-        //                            foreach (var cycle in cycles)
-        //                            {
-        //                                var c = new List<string>(cycle);
-        //                                c.Reverse();
-        //                                foreach (var vertex in c)
-        //                                {
-        //                                    inner.Add(vertex);
-        //                                    if (vertex == end)
-        //                                        break;
-        //                                }
-        //                                break;
-        //                            }
-
-        //                            inner.Add(e.Target);
-        //                            if (e.Source != station)
-        //                            {
-        //                                //inner.Add(e.Source);
-
-        //                                var pred = observer.VertexPredecessors[e.Source];
-        //                                while (pred != null)
-        //                                {
-        //                                    inner.Add(pred.Target);
-        //                                    if (observer.VertexPredecessors.ContainsKey(pred.Source))
-        //                                    {
-        //                                        pred = observer.VertexPredecessors[pred.Source];
-        //                                    }
-        //                                    else
-        //                                    {
-        //                                        inner.Add(pred.Source);
-        //                                        break;
-        //                                    }
-        //                                }
-        //                            }
-
-        //                            inner.Reverse();
-        //                            lstttt.Add(inner);
-        //                        }
-        //                    }
-        //                }
-        //            };
-
-        //            dfs.DiscoverVertex += v =>
-        //            {
-        //                if (v != station)
-        //                {
-        //                    var l = _graph.OutEdges(v);
-        //                    //var predessors = observer.VertexPredecessors;
-        //                    //predessors.Add(station, null);
-        //                    if (l.Any(adj => observer.VertexPredecessors.ContainsKey(adj.Target) || adj.Target == station))
-        //                    {
-                                
-        //                        var connectedToCyclic = l.Where(adj => lstttt.Any(ll => ll.Contains(adj.Target)) || adj.Target == station);
-        //                        foreach (var backEnd in connectedToCyclic)
-        //                        {
-        //                            var inner = new List<string>();
-        //                            var pred = observer.VertexPredecessors[backEnd.Target];
-        //                            while (pred != null)
-        //                            {
-        //                                inner.Add(pred.Target);
-        //                                if (observer.VertexPredecessors.ContainsKey(pred.Source))
-        //                                {
-        //                                    pred = observer.VertexPredecessors[pred.Source];
-        //                                }
-        //                                else
-        //                                {
-        //                                    inner.Add(pred.Source);
-        //                                    break;
-        //                                }
-        //                            }
-
-        //                            pred = observer.VertexPredecessors.Last().Value;
-        //                            while (pred != null)
-        //                            {
-        //                                inner.Add(pred.Target);
-        //                                if (observer.VertexPredecessors.ContainsKey(pred.Source))
-        //                                {
-        //                                    pred = observer.VertexPredecessors[pred.Source];
-        //                                }
-        //                                else
-        //                                {
-        //                                    inner.Add(pred.Source);
-        //                                    break;
-        //                                }
-        //                            }
-        //                            inner.Reverse();
-        //                            lstttt.Add(inner);
-
-
-        //                        //    var cyclesToJoin = lstttt.Where(ll => ll.Contains(edge.Target));
-        //                        //    foreach (var cycle in cyclesToJoin)
-        //                        //    {
-        //                        //        for (int i = 1; i < cycle.Count-1; i++)
-        //                        //        {
-        //                        //            inner.Add(cycle[i]);
-        //                        //        }
-        //                        //    }
-        //                        }
-        //                    }
-        //                }
-        //            };
-        //            dfs.Compute(station);
-        //            //dfs.Visit(station);
-        //        }
-        //    }
-
-        //    var stringCycles = lstttt.Select(
-        //        pathList =>
-        //        {
-        //            var fffstr = "";
-        //            pathList.ForEach(s => fffstr += s + "-");
-        //            fffstr = fffstr.TrimEnd('-');
-        //            return fffstr;
-        //        });
-            
-        //    var g = dfs.VisitedGraph;
-        //    //var c = dfs.GetVertexColor("MAKSIMIR");
-        //    //c = dfs.GetVertexColor("SIGET");
-        //    //c = dfs.GetVertexColor("DUBRAVA");
-        //    //c = dfs.GetVertexColor("MEDVESCAK");
-        //    //var fffstr = "";
-        //    //IEnumerable<Edge<string>> edges;
-        //    //if (observer.TryGetPath(station, out edges))
-        //    //{
-        //    //    fffstr = "To get to vertex '" + station + "', take the following edges:";
-        //    //    foreach (var edge in edges)
-        //    //        fffstr+=edge.Source + " -> " + edge.Target;
-        //    //}
-
-        //    //foreach (var kv in observer.VertexPredecessors)
-        //    //{
-        //    //    //var strPath = kv.ToString();
-        //    //    //strPath = kv.Key;
-        //    //    //strPath += "-" + kv.Value.Source;
-        //    //    //strPath = strPath.TrimEnd('-');
-        //    //}
-
-        //    #region tarjan strong components
-        //    //IDictionary<string, int> components = new Dictionary<string, int>();  //Key: vertex, Value: subgraph index, 0-based.
-        //    //_graph.StronglyConnectedComponents(out components);
-        //    //Console.WriteLine("Graph contains {0} strongly connected components", components.Count);
-        //    //foreach (var component in components)
-        //    //{
-        //    //    var s = component.ToString();
-                
-        //    //    Console.WriteLine("Vertex {0} is connected to subgraph {1}", component.Key, component.Value);
-        //    //}
-            
-        //    //// Group and filter the dictionary
-        //    //var cycles = components
-        //    //    .GroupBy(x => x.Value, x => x.Key)
-        //    //    //.Where(x => x.Count() > 1)
-        //    //    .Select(x => x.ToList()).ToList();
-        //    //var stringCycles = cycles.Select(
-        //    //    pathList =>
-        //    //    {
-        //    //        fffstr = "";
-        //    //        pathList.ForEach(s => fffstr += s + "-");
-        //    //        fffstr = fffstr.TrimEnd('-');
-        //    //        return fffstr;
-        //    //    });
-        //    #endregion
-
-        //    return stringCycles;
-        //}
-
-        //void dfs_TreeEdge(Edge<string> e)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        
-
-        
-
         public double GetAdjacentPathDistanceBetweenStations(string from, string to)
         {
             Edge<string> routeFromTo;
             _graph.TryGetEdge(from, to, out routeFromTo); // i believe that works fine under the hood, one might check later
-            // O(N) have to check every edge, not very efficient
-            //var routeFromTo = _graph.Edges.SingleOrDefault(edge => (edge.Source == from && edge.Target == to));
-            //var vFrom = _graph.Vertices.FirstOrDefault(v => v == from);
 
             if (routeFromTo != null)
             {
@@ -456,20 +248,5 @@ namespace MetroNetwork
         }
     }
 
-    public static class LinqExtensions
-    {
-        public static IEnumerable<T> WithoutLast<T>(this IEnumerable<T> source)
-        {
-            using (var e = source.GetEnumerator())
-            {
-                if (e.MoveNext())
-                {
-                    for (var value = e.Current; e.MoveNext(); value = e.Current)
-                    {
-                        yield return value;
-                    }
-                }
-            }
-        }
-    }
+    //public class AllPaths
 }

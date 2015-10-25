@@ -39,6 +39,6 @@ namespace MetroNetworkService
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "trip/count/")]
         [OperationContract]
-        StopsInTripsList GetAllPossibleTripsBetweenStations(StationsPair stations, int exactStopsInBetween);
+        StopsInTripsList GetAllPossibleTripsBetweenStations(StationsPair stations, [MessageParameter(Name = "stops")] int exactStopsInBetween);
     }
 }
