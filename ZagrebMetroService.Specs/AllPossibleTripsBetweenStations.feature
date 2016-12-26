@@ -18,9 +18,9 @@ Scenario Outline: Find out how many trips there are starting at one station and 
 	Then I get as a response the following JSON data structure '<AllPossibleTripsWithAmountOfStops>'	
 	Examples: 
 		|		 Name				| StationPairsAndStopsInBetweenAmount										| AllPossibleTripsWithAmountOfStops																							|
-		|	 MaksimirSpansko		| { "stations" : { "start" : "MAKSIMIR", "end" : "SPANSKO" }, "stops": 4 }	| { "count" : 3, "stops" : [ "SIGET-SPANSKO-MEDVESCAK", "MEDVESCAK-SPANSKO-MEDVESCAK", "MEDVESCAK-DUBRAVA-SIGET"]}			|
-		|	 SigetSiget				| { "stations" : { "start" : "SIGET", "end" : "SIGET" }, "stops": 4 }		| { "distance" : 9 }				|
-		|	 NoSuchRoute			| { "stations" : { "start" : "DUBRAVA", "end" : "MAKSIMIR" }, "stops": 4 }	| { "distance" : "NO SUCH ROUTE" }	|
-		|	 SpanskoSpansko			| { "stations" : { "start" : "SPANSKO", "end" : "SPANSKO" }, "stops": 4 }	| { "distance" : 9 }				|
+		|	 MaksimirSpansko		| { "stations" : { "start" : "MAKSIMIR", "end" : "SPANSKO" }, "stops": 4 }	| { "count" : 3, "stops" : [ "SIGET-SPANSKO-MEDVESCAK", "MEDVESCAK-SPANSKO-MEDVESCAK", "MEDVESCAK-DUBRAVA-SIGET"] }			|
+		|	 SigetSiget				| { "stations" : { "start" : "SIGET", "end" : "SIGET" }, "stops": 4 }		| { "count" : 1, "stops" : [ "SPANSKO-MEDVESCAK-DUBRAVA" ]  }																|
+		|	 NoSuchRoute			| { "stations" : { "start" : "DUBRAVA", "end" : "MAKSIMIR" }, "stops": 4 }	| { "count" : 0, "stops" : [] }																								|
+		|	 SpanskoSpansko			| { "stations" : { "start" : "SPANSKO", "end" : "SPANSKO" }, "stops": 4 }	| { "count" : 2, "stops" : [ "MEDVESCAK-SPANSKO-MEDVESCAK", "MEDVESCAK-DUBRAVA-SIGET"]  }									|
 
 		
