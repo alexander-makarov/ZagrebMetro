@@ -43,7 +43,7 @@ namespace ZagrebMetroService
 
         public RoundTripsList GetRoundTripsForStation(string station)
         {
-            var roundPathes = _metroNetwork.GetRoutingTripsForStation(station).ToList();
+            var roundPathes = _metroNetwork.GetRoundTripsForStation(station).ToList();
             return new RoundTripsList {RoundTrips = roundPathes, Count = roundPathes.Count};
         }
 
