@@ -75,7 +75,7 @@ namespace MetroNetwork
         {
             if (from == to)
             {
-                // if wanna llok for shortest path from a vertex back to the same vertex
+                // if wanna look for shortest path from a vertex back to the same vertex
                 // i.e. shortest cycle included a given vertex
                 // use the Floyd-Warshall algorithm O(V^3)
                 var distance = 0.0;
@@ -120,7 +120,7 @@ namespace MetroNetwork
             var result = new List<string>();
 
             _maxDepthOfRecursiveTraversal = exactStopsInBetween;
-            var allRoutes = GetStationRoutesFromRecursive(start, 0, "not-existent-root-station-to-allow-loops");
+            var allRoutes = GetStationRoutesFromRecursive(start, "not-existent-root-station-to-allow-loops");
             var onlyCycles = allRoutes.Where(rt =>
                 rt.Last() == start &&
                 rt.First() == end &&
@@ -183,7 +183,7 @@ namespace MetroNetwork
         {
             var result = new List<string>();
             _maxDepthOfRecursiveTraversal = 3;
-            var allRoutes = GetStationRoutesFromRecursive(station, 0, station);
+            var allRoutes = GetStationRoutesFromRecursive(station, station);
             var onlyCycles = allRoutes.Where(rt => 
                 rt.Last() == station &&
                 rt.First() == station &&
@@ -205,10 +205,10 @@ namespace MetroNetwork
         /// Basically primitive form of depth-first traversal (with no colors applying)
         /// </summary>
         /// <param name="station">station vertex to start with</param>
-        /// <param name="depth">current recursive depth</param>
         /// <param name="endStationToStopRouting">station</param>
+        /// <param name="depth">current recursive depth</param>
         /// <returns></returns>
-        private List<List<string>> GetStationRoutesFromRecursive(string station, int depth, string endStationToStopRouting)
+        private List<List<string>> GetStationRoutesFromRecursive(string station, string endStationToStopRouting, int depth= 0)
         {
             if (depth++ == _maxDepthOfRecursiveTraversal) // here restrict for a maximum of 3 stops for a round trip / cycle basically
                 return new List<List<string>> { new List<string> { station } }; // stop recursive traversion if too deep
@@ -225,7 +225,7 @@ namespace MetroNetwork
                         continue; // no recursive call needed
                     }
 
-                    var routes = GetStationRoutesFromRecursive(edge.Target, depth, endStationToStopRouting);
+                    var routes = GetStationRoutesFromRecursive(edge.Target, endStationToStopRouting, depth);
                     routes.ForEach(rt => rt.Add(station));
                     result.AddRange(routes);
                 }
@@ -247,6 +247,4 @@ namespace MetroNetwork
             return -1;
         }
     }
-
-    //public class AllPaths
 }
