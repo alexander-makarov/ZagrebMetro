@@ -31,9 +31,10 @@ namespace ZagrebMetroService.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "All possible trips between stations with exactly 4 stops", "As a citizen or visitor to Zagreb \r\nI want to be able to find out how many trips " +
-                    "there are starting at one station and ending at another station with exactly 4 s" +
-                    "tops\r\nusing HTTP REST services which output JSON data", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "All possible trips between stations with exactly 4 stops", @"As a citizen or visitor to Zagreb 
+I want to be able to find out how many trips there are starting at one station and ending at another station with exactly 4 stops
+(it's okay to have the same station a few times)
+using HTTP REST services which output JSON data", ProgrammingLanguage.CSharp, new string[] {
                         "operateOnSelfHostedWcfService"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -73,9 +74,9 @@ namespace ZagrebMetroService.Specs
         
         public virtual void FeatureBackground()
         {
-#line 7
-#line hidden
 #line 8
+#line hidden
+#line 9
  testRunner.Given("I have a deployed HTTP REST service with the following metro network graph:", "MAKSIMIR-SIGET:5, SIGET-SPANSKO:4, SPANSKO-MEDVESCAK:8, MEDVESCAK-SPANSKO:8,\r\nMED" +
                     "VESCAK-DUBRAVA:6, MAKSIMIR-MEDVESCAK:5, SPANSKO-DUBRAVA:2, DUBRAVA-SIGET:3,\r\nMAK" +
                     "SIMIR-DUBRAVA:7", ((TechTalk.SpecFlow.Table)(null)), "Given ");
@@ -86,15 +87,15 @@ namespace ZagrebMetroService.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Find out how many trips there are starting at one station and ending at another s" +
                     "tation with exactly 4 stops", exampleTags);
-#line 15
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
 #line 16
- testRunner.Given(string.Format("the following JSON data structure with stations provided \'{0}\'", stationPairsAndStopsInBetweenAmount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
+#line 8
+this.FeatureBackground();
 #line 17
- testRunner.When("I request: POST /zagreb-metro/trip/count", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given(string.Format("the following JSON data structure with stations provided \'{0}\'", stationPairsAndStopsInBetweenAmount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 18
+ testRunner.When("I request: POST /zagreb-metro/trip/count", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
  testRunner.Then(string.Format("I get as a response the following JSON data structure \'{0}\'", allPossibleTripsWithAmountOfStops), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

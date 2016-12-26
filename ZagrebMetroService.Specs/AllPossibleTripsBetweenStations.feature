@@ -2,6 +2,7 @@
 Feature: All possible trips between stations with exactly 4 stops
 	As a citizen or visitor to Zagreb 
 	I want to be able to find out how many trips there are starting at one station and ending at another station with exactly 4 stops
+	(it's okay to have the same station a few times)
 	using HTTP REST services which output JSON data
 
 Background: 
