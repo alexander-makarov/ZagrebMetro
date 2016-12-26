@@ -1,20 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Reflection;
 using System.ServiceModel;
-using System.ServiceModel.Description;
-using System.Text;
-using System.Threading.Tasks;
 using MetroNetwork;
-using MetroNetworkService;
-using Newtonsoft.Json;
-using Ninject;
-using Ninject.Extensions.Wcf;
-using Ninject.Extensions.Wcf.SelfHost;
-using Ninject.Web.Common.SelfHost;
 using RestRequestHelpers;
 using ZagrebMetroService;
 
